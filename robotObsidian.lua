@@ -1,6 +1,7 @@
 local r = require("robot")
 local c = require("component")
-local inv = c.inventory_controller
+
+print("*** Start ***\n", os.date())
 
 while true do
 
@@ -9,12 +10,16 @@ while true do
     if type == "solid" then
         r.swing()
     else
-        r.turnAround()
-        inv.equip()
-        r.use()
-        r.turnAround()
-        r.use()
-        inv.equip()
-    end
+        check, _ = r.fill()
 
+        if check == nil then
+            drum, count = r.drainDown(16000)
+
+            if drum == false or count < 1000 then
+                break
+            end
+        end
+    end
 end
+
+print("*** Stop ***\n", os.date())
