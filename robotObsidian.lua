@@ -1,7 +1,7 @@
 local r = require("robot")
 local c = require("component")
 
-print("*** Start ***\n", os.date())
+print("*** Start ***")
 
 while true do
 
@@ -22,4 +22,4 @@ while true do
     end
 end
 
-print("*** Stop ***\n", os.date())
+print("*** Stop ***")
